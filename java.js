@@ -5,6 +5,8 @@ let level =0;
 let h2=document.querySelector("h2");
 let btns=["yellow","green","blue","red"];
 let button=document.querySelector(".start");
+let h3 = document.querySelector("h3");
+let highscore = 0;
 
 button.addEventListener("click", function(){
     if (started== false){
@@ -45,8 +47,16 @@ function checkseq(idx){
         }
     }
     else{
-        h2.innerHTML=`game over ! <b>your score was ${level}</b> <br> press restart `;
+        let score = level;
+
+        h2.innerHTML=`game over ! <b>your score was ${score}</b> <br> press restart `;
         reset();
+        
+        if (score> highscore){
+            
+            console.log=("you done")
+            h3.innerText= `high score : ${score}`;
+        }
         
     }
 }
@@ -63,7 +73,7 @@ function reset(){
     started=false;
     userseq=[];
     level = 0;
-    button.innerText="restart"
+    button.innerText="Restart"
 }
 function btnPress(){
     let btn= this;
